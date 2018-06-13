@@ -1,7 +1,7 @@
 BitShares³ Core
 ==============
 
-[Build Status](https://travis-ci.org/bitshares/bitshares-core/branches):
+[Build Status](https://travis-ci.org/bitshares/bitshares3-core/branches):
 
 `master` | `develop` | `hardfork` | `testnet` | `bitshares-fc` 
  --- | --- | --- | --- | ---
@@ -208,7 +208,7 @@ FAQ
 
     The second number specifies the *type*.  The type of the object determines what fields it has.  For a
     complete list of type ID's, see `enum object_type` and `enum impl_object_type` in
-    [types.hpp](https://github.com/bitshares/bitshares-2/blob/bitshares/libraries/chain/include/graphene/chain/protocol/types.hpp).
+    [types.hpp](https://github.com/bitshares3/bitshares-2/blob/bitshares/libraries/chain/include/graphene/chain/protocol/types.hpp).
 
     The third number specifies the *instance*.  The instance of the object is different for each individual
     object.
@@ -241,5 +241,5 @@ FAQ
  
 License
 -------
-BitShares³ Core is under the MIT license. See [LICENSE](https://github.com/bitshares/bitshares-core/blob/master/LICENSE.txt)
+BitShares³ Core is under the MIT license. See [LICENSE](https://github.com/bitshares3/bitshares3-core/blob/master/LICENSE.txt)
 for more information.

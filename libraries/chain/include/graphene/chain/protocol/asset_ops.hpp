@@ -25,7 +25,7 @@
 #include <graphene/chain/protocol/base.hpp>
 #include <graphene/chain/protocol/memo.hpp>
 
-namespace graphene { namespace chain { 
+namespace graphene { namespace chain {
 
    bool is_valid_symbol( const string& symbol );
 
@@ -118,7 +118,7 @@ namespace graphene { namespace chain {
     */
    struct asset_create_operation : public base_operation
    {
-      struct fee_parameters_type { 
+      struct fee_parameters_type {
          uint64_t symbol3        = 500000 * GRAPHENE_BLOCKCHAIN_PRECISION;
          uint64_t symbol4        = 300000 * GRAPHENE_BLOCKCHAIN_PRECISION;
          uint64_t long_symbol    = 5000   * GRAPHENE_BLOCKCHAIN_PRECISION;
@@ -190,9 +190,9 @@ namespace graphene { namespace chain {
     */
    struct asset_settle_operation : public base_operation
    {
-      struct fee_parameters_type { 
+      struct fee_parameters_type {
          /** this fee should be high to encourage small settlement requests to
-          * be performed on the market rather than via forced settlement. 
+          * be performed on the market rather than via forced settlement.
           *
           * Note that in the event of a black swan or prediction market close out
           * everyone will have to pay this fee.
@@ -270,7 +270,7 @@ namespace graphene { namespace chain {
     */
    struct asset_update_operation : public base_operation
    {
-      struct fee_parameters_type { 
+      struct fee_parameters_type {
          uint64_t fee            = 500 * GRAPHENE_BLOCKCHAIN_PRECISION;
          uint32_t price_per_kbyte = 10;
       };
@@ -385,8 +385,8 @@ namespace graphene { namespace chain {
     */
    struct asset_issue_operation : public base_operation
    {
-      struct fee_parameters_type { 
-         uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION; 
+      struct fee_parameters_type {
+         uint64_t fee = 20 * GRAPHENE_BLOCKCHAIN_PRECISION;
          uint32_t price_per_kbyte = GRAPHENE_BLOCKCHAIN_PRECISION;
       };
 
@@ -476,12 +476,12 @@ namespace graphene { namespace chain {
    };
 
    /**
-    * @brief Transfers BTS from the fee pool of a specified asset back to the issuer's balance
+    * @brief Transfers BTS3 from the fee pool of a specified asset back to the issuer's balance
 
     * @param fee Payment for the operation execution
-    * @param issuer Account which will be used for transfering BTS
+    * @param issuer Account which will be used for transfering BTS3
     * @param asset_id Id of the asset whose fee pool is going to be drained
-    * @param amount_to_claim Amount of BTS to claim from the fee pool
+    * @param amount_to_claim Amount of BTS3 to claim from the fee pool
     * @param extensions Field for future expansion
 
     * @pre @ref fee must be paid in the asset other than the one whose pool is being drained

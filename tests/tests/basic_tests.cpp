@@ -585,7 +585,7 @@ BOOST_AUTO_TEST_CASE( merkle_root )
 }
 
 /**
- * Reproduces https://github.com/bitshares/bitshares-core/issues/888 and tests fix for it.
+ * Reproduces https://github.com/bitshares3/bitshares3-core/issues/888 and tests fix for it.
  */
 BOOST_AUTO_TEST_CASE( bitasset_feed_expiration_test )
 {

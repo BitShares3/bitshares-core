@@ -1,5 +1,5 @@
 FROM phusion/baseimage:0.10.1
-MAINTAINER The bitshares decentralized organisation
+MAINTAINER BitShares3 Project
 
 ENV LANG=en_US.UTF-8
 RUN \
@@ -23,8 +23,8 @@ RUN \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-ADD . /bitshares-core
-WORKDIR /bitshares-core
+ADD . /bitshares3-core
+WORKDIR /bitshares3-core
 
 # Compile
 RUN \
@@ -46,16 +46,16 @@ RUN \
     mkdir /etc/bitshares && \
     git rev-parse --short HEAD > /etc/bitshares/version && \
     cd / && \
-    rm -rf /bitshares-core
+    rm -rf /bitshares3-core
 
 # Home directory $HOME
 WORKDIR /
-RUN useradd -s /bin/bash -m -d /var/lib/bitshares bitshares
-ENV HOME /var/lib/bitshares
-RUN chown bitshares:bitshares -R /var/lib/bitshares
+RUN useradd -s /bin/bash -m -d /var/lib/bitshares3 bitshares3
+ENV HOME /var/lib/bitshares3
+RUN chown bitshares3:bitshares3 -R /var/lib/bitshares3
 
 # Volume
-VOLUME ["/var/lib/bitshares", "/etc/bitshares"]
+VOLUME ["/var/lib/bitshares3", "/etc/bitshares3"]
 
 # rpc service:
 EXPOSE 8090
@@ -63,9 +63,9 @@ EXPOSE 8090
 EXPOSE 2001
 
 # default exec/config files
-ADD docker/default_config.ini /etc/bitshares/config.ini
-ADD docker/bitsharesentry.sh /usr/local/bin/bitsharesentry.sh
-RUN chmod a+x /usr/local/bin/bitsharesentry.sh
+ADD docker/default_config.ini /etc/bitshares3/config.ini
+ADD docker/bitshares3entry.sh /usr/local/bin/bitshares3entry.sh
+RUN chmod a+x /usr/local/bin/bitshares3entry.sh
 
 # default execute entry
-CMD /usr/local/bin/bitsharesentry.sh
+CMD /usr/local/bin/bitshares3entry.sh

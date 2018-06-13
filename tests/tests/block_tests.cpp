@@ -301,7 +301,7 @@ BOOST_AUTO_TEST_CASE( fork_blocks )
 
             // At this point, `fetch_block_by_number` will fetch block from fork_db,
             //    so unable to reproduce the issue which is fixed in PR #938
-            //    https://github.com/bitshares/bitshares-core/pull/938
+            //    https://github.com/bitshares3/bitshares3-core/pull/938
             fc::optional<signed_block> previous_block = db1.fetch_block_by_number(1);
             BOOST_CHECK ( previous_block.valid() );
             uint32_t db1_blocks = db1.head_block_num();
@@ -333,7 +333,7 @@ BOOST_AUTO_TEST_CASE( fork_blocks )
       }
 
       {
-         // PR #938 make sure db is in a good state https://github.com/bitshares/bitshares-core/pull/938
+         // PR #938 make sure db is in a good state https://github.com/bitshares3/bitshares3-core/pull/938
          BOOST_TEST_MESSAGE( "Checking whether all blocks on disk are good" );
          fc::optional<signed_block> previous_block = db1.fetch_block_by_number(1);
          BOOST_CHECK ( previous_block.valid() );
@@ -1415,7 +1415,7 @@ BOOST_FIXTURE_TEST_CASE( update_account_keys, database_fixture )
       std::cout << "update_account_keys:  this test will take a few minutes...\n";
 
       // Originally we had a loop here to go from use_address=0 to 1
-      // Live chain do not allow this so it had to be removed: https://github.com/bitshares/bitshares-core/issues/565
+      // Live chain do not allow this so it had to be removed: https://github.com/bitshares3/bitshares3-core/issues/565
       vector< public_key_type > key_ids = numbered_key_id[ 0 ];
       for( int num_owner_keys=1; num_owner_keys<=2; num_owner_keys++ )
       {
@@ -1522,7 +1522,7 @@ BOOST_FIXTURE_TEST_CASE( update_account_keys, database_fixture )
 
 // The next test is commented out as it will fail in current bitshares implementaton
 // where "witnesses should never sign 2 consecutive blocks" is not enforced.
-// https://github.com/bitshares/bitshares-core/issues/565
+// https://github.com/bitshares3/bitshares3-core/issues/565
 // Leaving it here to use it if we implement.later
 
 /**

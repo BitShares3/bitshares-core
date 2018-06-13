@@ -272,8 +272,8 @@ BOOST_AUTO_TEST_CASE( cli_vote_for_2_witnesses )
       con.wallet_api_ptr->save_wallet_file(con.wallet_filename);
 
       // attempt to give jmjatlanta some bitsahres
-      BOOST_TEST_MESSAGE("Transferring bitshares from Nathan to jmjatlanta");
-      signed_transaction transfer_tx = con.wallet_api_ptr->transfer("nathan", "jmjatlanta", "10000", "1.3.0", "Here are some BTS for your new account", true);
+      BOOST_TEST_MESSAGE("Transferring BTS3 from Nathan to jmjatlanta");
+      signed_transaction transfer_tx = con.wallet_api_ptr->transfer("nathan", "jmjatlanta", "10000", "1.3.0", "Here are some BTS3 for your new account", true);
 
       // get the details for init1
       witness_object init1_obj = con.wallet_api_ptr->get_witness("init1");
@@ -368,8 +368,8 @@ BOOST_AUTO_TEST_CASE( cli_set_voting_proxy )
       con.wallet_api_ptr->save_wallet_file(con.wallet_filename);
 
       // attempt to give jmjatlanta some bitsahres
-      BOOST_TEST_MESSAGE("Transferring bitshares from Nathan to jmjatlanta");
-      signed_transaction transfer_tx = con.wallet_api_ptr->transfer("nathan", "jmjatlanta", "10000", "1.3.0", "Here are some BTS for your new account", true);
+      BOOST_TEST_MESSAGE("Transferring BTS3 from Nathan to jmjatlanta");
+      signed_transaction transfer_tx = con.wallet_api_ptr->transfer("nathan", "jmjatlanta", "10000", "1.3.0", "Here are some BTS3 for your new account", true);
 
       // grab account for comparison
       account_object prior_voting_account = con.wallet_api_ptr->get_account("jmjatlanta");

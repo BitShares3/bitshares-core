@@ -9,13 +9,13 @@ The `Dockerfile` performs the following steps:
 
 1. Obtain base image (phusion/baseimage:0.10.1)
 2. Install required dependencies using `apt-get`
-3. Add bitshares-core source code into container
+3. Add bitshares3-core source code into container
 4. Update git submodules
 5. Perform `cmake` with build type `Release`
 6. Run `make` and `make_install` (this will install binaries into `/usr/local/bin`
 7. Purge source code off the container
-8. Add a local bitshares user and set `$HOME` to `/var/lib/bitshares`
-9. Make `/var/lib/bitshares` and `/etc/bitshares` a docker *volume*
+8. Add a local bitshares user and set `$HOME` to `/var/lib/bitshares3`
+9. Make `/var/lib/bitshares3` and `/etc/bitshares3` a docker *volume*
 10. Expose ports `8090` and `2001`
 11. Add default config from `docker/default_config.ini` and entry point script
 12. Run entry point script by default
@@ -25,19 +25,19 @@ The entry point simplifies the use of parameters for the `witness_node`
 
 ### Supported Environmental Variables
 
-* `$BITSHARESD_SEED_NODES`
-* `$BITSHARESD_RPC_ENDPOINT`
-* `$BITSHARESD_PLUGINS`
-* `$BITSHARESD_REPLAY`
-* `$BITSHARESD_RESYNC`
-* `$BITSHARESD_P2P_ENDPOINT`
-* `$BITSHARESD_WITNESS_ID`
-* `$BITSHARESD_PRIVATE_KEY`
-* `$BITSHARESD_TRACK_ACCOUNTS`
-* `$BITSHARESD_PARTIAL_OPERATIONS`
-* `$BITSHARESD_MAX_OPS_PER_ACCOUNT`
-* `$BITSHARESD_ES_NODE_URL`
-* `$BITSHARESD_TRUSTED_NODE`
+* `$BTS3D_SEED_NODES`
+* `$BTS3D_RPC_ENDPOINT`
+* `$BTS3D_PLUGINS`
+* `$BTS3D_REPLAY`
+* `$BTS3D_RESYNC`
+* `$BTS3D_P2P_ENDPOINT`
+* `$BTS3D_WITNESS_ID`
+* `$BTS3D_PRIVATE_KEY`
+* `$BTS3D_TRACK_ACCOUNTS`
+* `$BTS3D_PARTIAL_OPERATIONS`
+* `$BTS3D_MAX_OPS_PER_ACCOUNT`
+* `$BTS3D_ES_NODE_URL`
+* `$BTS3D_TRUSTED_NODE`
 
 ### Default config
 
@@ -59,35 +59,35 @@ With docker compose, multiple nodes can be managed with a single
     services:
      main:
       # Image to run
-      image: bitshares/bitshares-core:latest
-      # 
+      image: bitshares3/bitshares3-core:latest
+      #
       volumes:
-       - ./docker/conf/:/etc/bitshares/
+       - ./docker/conf/:/etc/bitshares3/
       # Optional parameters
       environment:
-       - BITSHARESD_ARGS=--help
+       - BTS3D_ARGS=--help
 
 
     version: '3'
     services:
      fullnode:
       # Image to run
-      image: bitshares/bitshares-core:latest
+      image: bitshares3/bitshares3-core:latest
       environment:
       # Optional parameters
       environment:
-       - BITSHARESD_ARGS=--help
+       - BTS3D_ARGS=--help
       ports:
        - "0.0.0.0:8090:8090"
       volumes:
-      - "bitshares-fullnode:/var/lib/bitshares"
+      - "bitshares3-fullnode:/var/lib/bitshares3"
 
 
 # Docker Hub
 
 This container is properly registered with docker hub under the name:
 
-* [bitshares/bitshares-core](https://hub.docker.com/r/bitshares/bitshares-core/)
+* [bitshares3/bitshares3-core](https://hub.docker.com/r/bitshares3/bitshares3-core/)
 
 Going forward, every release tag as well as all pushes to `develop` and
 `testnet` will be built into ready-to-run containers, there.
@@ -102,24 +102,24 @@ version: '3'
 services:
 
  fullnode:
-  image: bitshares/bitshares-core:latest
+  image: bitshares3/bitshares3-core:latest
   ports:
    - "0.0.0.0:8090:8090"
   volumes:
-  - "bitshares-fullnode:/var/lib/bitshares"
+  - "bitshares3-fullnode:/var/lib/bitshares3"
 
  delayed_node:
-  image: bitshares/bitshares-core:latest
+  image: bitshares3/bitshares3-core:latest
   environment:
-   - 'BITSHARESD_PLUGINS=delayed_node witness'
-   - 'BITSHARESD_TRUSTED_NODE=ws://fullnode:8090'
+   - 'BTS3D_PLUGINS=delayed_node witness'
+   - 'BTS3D_TRUSTED_NODE=ws://fullnode:8090'
   ports:
    - "0.0.0.0:8091:8090"
   volumes:
-  - "bitshares-delayed_node:/var/lib/bitshares"
-  links: 
+  - "bitshares3-delayed_node:/var/lib/bitshares3"
+  links:
   - fullnode
 
 volumes:
- bitshares-fullnode:
+ bitshares3-fullnode:
 ```

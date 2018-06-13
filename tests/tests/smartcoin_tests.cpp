@@ -48,8 +48,8 @@ BOOST_AUTO_TEST_CASE(bsip36)
        */
 
       /* References:
-       * BSIP 36: https://github.com/bitshares/bsips/blob/master/bsip-0036.md
-       * and the former: CORE Issue 518: https://github.com/bitshares/bitshares-core/issues/518
+       * BSIP 36: https://github.com/bitshares3/bsips/blob/master/bsip-0036.md
+       * and the former: CORE Issue 518: https://github.com/bitshares3/bitshares3-core/issues/518
        */
 
       // Create 12 accounts to be witnesses under our control
