@@ -15,10 +15,10 @@ BitShares³ Core
 * [FAQ](#faq)
 * [License](#license)
 
-BitShares Core is the BitShares blockchain implementation and command-line interface.
-The web wallet is [BitShares UI](https://github.com/bitshares/bitshares-ui).
+BitShares³ Core is the BitShares³ blockchain implementation and command-line interface.
+The web wallet is [BitShares³ UI](https://github.com/bitshares3/bitshares3-ui).
 
-Visit [Bts3.io](https://bts3.io/) to learn about BitShares and join the community at [bts3talk.org](https://bts3talk.org/).
+Visit [Bts3.io](https://bts3.io/) to learn about BitShares³ and join the community at [bts3talk.org](https://bts3talk.org/).
 
 **NOTE:** The official BitShares³ git repository location, default branch, and submodule remotes were recently changed. Existing
 repositories can be updated with the following steps:
